@@ -1,0 +1,42 @@
+
+form {
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #132C33;
+    border-radius: 1em;   
+    }
+div > label {
+    display: block;
+}
+
+label {
+    position: relative;
+}
+input:focus:invalid, textarea:focus:invalid{
+    border-color: #126E82;
+}
+button {
+    margin: 20px 0 0 100px;
+    }
+h1 {
+        color: #126E82;
+        text-align: center;
+        font: italic 3.2em "Fira Sans", serif;
+    }
+
+#display{
+    text-align: center;
+    font-size: large;
+}
+#btn.hover {
+    background-color: #24A19C;
+}
+div {
+    
+    font-size: large;
+}
+header{
+    text-align: center;
+    padding: 1vh 0;
+}
