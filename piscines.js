@@ -56,13 +56,11 @@ var btn = document.getElementById("btn");
 
 btn.addEventListener("click", function (event) {
     event.preventDefault();
-    var ville = document.getElementById("ville").value;
     requestApi(url);
-    //console.log(ville);
+
 });
 
-function getValue() {
-    //selectionner l'element input et recuperer sa valeur
-    var ville = document.getElementById("ville").value;
-    //console.log(getValue);
-}
+btn.addEventListener('click', function (e){
+    display.innerHTML = "";
+});
+
