@@ -1,14 +1,14 @@
 // create variable link json
 const url = "https://data.laregion.fr/api/records/1.0/search/?dataset=piscines&q=";
-let jsonData;
+
 // for requet
-function getApi(url) {
+function requestApi(url) {
     fetch(url)
     .then(reponse => reponse.json())
     .then(data => {
-        jsonData = data;
+        
         //console.log(jsonData);
-        piscines(jsonData);
+        piscines(data);
     })
 
     .catch((error) => {
@@ -16,36 +16,36 @@ function getApi(url) {
     });
 }
 
-function piscines(jsonData) {
+function piscines(data) {
     //display.innerHTML = "";
 
-    for(i=0; i<jsonData.records.length; i++) {
+    for(i=0; i<data.records.length; i++) {
         //----------------- saison-----------------------/
             
         let saison = document.createElement("div");
 
         saison.textContent = "";
-        saison.textContent = `saison de ouverture ${jsonData.records[i].fields.saison}`;
+        saison.textContent = `saison de ouverture ${data.records[i].fields.saison}`;
         display.appendChild(saison);
         //----------------- telephone-----------------------/
         let telephone = document.createElement("div");
 
         telephone.textContent = "";
-        telephone.textContent = `numéro de téléphone ${jsonData.records[i].fields.telephone}`;
+        telephone.textContent = `numéro de téléphone ${data.records[i].fields.telephone}`;
         display.appendChild(telephone);
 
         //----------------- nom_complet-----------------------/
         let nom_complet = document.createElement("div");
 
         nom_complet.textContent = "";
-        nom_complet.textContent = `nom complexe ${jsonData.records[i].fields.nom_complet}`;
+        nom_complet.textContent = `nom complexe ${data.records[i].fields.nom_complet}`;
         display.appendChild(nom_complet);
         
         //----------------- adresse-----------------------/
         let adresse = document.createElement("div");
 
         adresse.textContent = "";
-        adresse.textContent = `adresse ${jsonData.records[i].fields.adresse}`;
+        adresse.textContent = `adresse ${data.records[i].fields.adresse}`;
         display.appendChild(adresse);
         
     }
@@ -56,13 +56,11 @@ var btn = document.getElementById("btn");
 
 btn.addEventListener("click", function (event) {
     event.preventDefault();
-    var ville = document.getElementById("ville").value;
-    getApi(url);
-    //console.log(ville);
+    requestApi(url);
+
 });
 
-function getValue() {
-    //selectionner l'element input et recuperer sa valeur
-    var ville = document.getElementById("ville").value;
-    //console.log(getValue);
-}
+btn.addEventListener('click', function (e){
+    display.innerHTML = "";
+});
+
