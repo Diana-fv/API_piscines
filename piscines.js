@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // create variable link json
 const url = "https://data.laregion.fr/api/records/1.0/search/?dataset=piscines&q=";
 
